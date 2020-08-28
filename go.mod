@@ -1,4 +1,4 @@
-module github.com/gobuffalo/httptest
+module github.com/giulianozor/httptest
 
 go 1.13
 
