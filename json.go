@@ -46,10 +46,10 @@ func (r *JSON) PostForm(key string, value string) *JSONResponse {
 	payload := &bytes.Buffer{}
 	writer := multipart.NewWriter(payload)
 	_ = writer.WriteField(key, value)
-	_ := writer.Close()
+	_ = writer.Close()
 
-	req.Header.Set("Content-Type", writer.FormDataContentType())
 	req, _ := http.NewRequest("POST", r.URL, payload)
+	req.Header.Set("Content-Type", writer.FormDataContentType())
 	return r.Perform(req)
 }
 
